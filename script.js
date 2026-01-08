@@ -52,12 +52,10 @@ function convert() {
   if (!from || !to) return alert("Sila pilih unit untuk From dan To.");
   if (isNaN(value)) return alert("Sila masukkan nombor yang sah.");
 
-  const m = {
-    length: { meter:1, kilometer:1000, mile:1609.34, feet:0.3048, inch:0.0254, centimeter:0.01 },
-    mass: { gram:1, kilogram:1000, pound:453.592, ounce:28.3495, ton:1e6 },
-    area: { square_meter:1, square_kilometer:1e6, hectare:1e4, acre:4046.86 },
-    volume: { liter:1, milliliter:0.001, cubic_meter:1000, gallon:3.785 },
-    speed: { mps:1, kmph:
+  let result;
+  if (type === "length") result = value * ( {meter:1, kilometer:1000, mile:1609.34, feet:0.3048, inch:0.0254, centimeter:0.01}[from] ) / ( {meter:1, kilometer:1000, mile:1609.34, feet:0.3048, inch:0.0254, centimeter:0.01}[to] );
+  else if (type === "mass") result = value * ( {gram:1, kilogram:1000, pound:453.592, ounce:28.3495, ton:1
+
 
 
 
