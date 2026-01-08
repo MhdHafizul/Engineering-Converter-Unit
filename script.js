@@ -14,7 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
   loadSaved();
 });
 
-document.getElementById("type").addEventListener("change", populateUnits);
+document.getElementById("type").addEventListener("change", () => {
+  populateUnits();
+  document.getElementById("value").value = "";
+  document.getElementById("result").innerText = "";
+});
+
 document.getElementById("convertBtn").addEventListener("click", convert);
 document.getElementById("pushBtn").addEventListener("click", pushConversion);
 document.getElementById("resetBtn").addEventListener("click", resetForm);
@@ -24,13 +29,11 @@ function populateUnits() {
   const from = document.getElementById("from");
   const to = document.getElementById("to");
 
-  const unitList = units[type];
-  if (!unitList) return;
+  const list = units[type] || [];
+  from.innerHTML = '<option value="" disabled selected>-- pilih unit --</option>';
+  to.innerHTML   = '<option value="" disabled selected>-- pilih unit --</option>';
 
-  from.innerHTML = "";
-  to.innerHTML = "";
-
-  unitList.forEach(u => {
+  list.forEach(u => {
     from.innerHTML += `<option value="${u}">${u}</option>`;
     to.innerHTML += `<option value="${u}">${u}</option>`;
   });
@@ -39,23 +42,27 @@ function populateUnits() {
 function convert() {
   const type = document.getElementById("type").value;
   const from = document.getElementById("from").value;
-  const to = document.getElementById("to").value;
+  const to   = document.getElementById("to").value;
   const value = parseFloat(document.getElementById("value").value);
 
+  if (!from || !to) {
+    alert("Sila pilih unit untuk From dan To.");
+    return;
+  }
   if (isNaN(value)) {
-    alert("Please enter a valid number!");
+    alert("Sila masukkan nombor yang sah.");
     return;
   }
 
   let result;
   if (type === "length") result = convertLength(value, from, to);
-  if (type === "mass") result = convertMass(value, from, to);
-  if (type === "temperature") result = convertTemp(value, from, to);
-  if (type === "area") result = convertArea(value, from, to);
-  if (type === "volume") result = convertVolume(value, from, to);
-  if (type === "speed") result = convertSpeed(value, from, to);
-  if (type === "pressure") result = convertPressure(value, from, to);
-  if (type === "energy") result = convertEnergy(value, from, to);
+  else if (type === "mass") result = convertMass(value, from, to);
+  else if (type === "temperature") result = convertTemp(value, from, to);
+  else if (type === "area") result = convertArea(value, from, to);
+  else if (type === "volume") result = convertVolume(value, from, to);
+  else if (type === "speed") result = convertSpeed(value, from, to);
+  else if (type === "pressure") result = convertPressure(value, from, to);
+  else if (type === "energy") result = convertEnergy(value, from, to);
 
   document.getElementById("result").innerText = `${value} ${from} = ${result} ${to}`;
   saveConversion(`${value} ${from} = ${result} ${to}`);
@@ -71,54 +78,8 @@ function convertMass(v, from, to) {
   return (v * m[from] / m[to]).toFixed(4);
 }
 function convertTemp(v, from, to) {
-  if (from === to) return v.toFixed(2);
-  if (from === "celsius") {
-    if (to === "fahrenheit") return (v*9/5+32).toFixed(2);
-    if (to === "kelvin") return (v+273.15).toFixed(2);
-  }
-  if (from === "fahrenheit") {
-    if (to === "celsius") return ((v-32)*5/9).toFixed(2);
-    if (to === "kelvin") return ((v-32)*5/9+273.15).toFixed(2);
-  }
-  if (from === "kelvin") {
-    if (to === "celsius") return (v-273.15).toFixed(2);
-    if (to === "fahrenheit") return ((v-273.15)*9/5+32).toFixed(2);
-  }
-}
-function convertArea(v, from, to) {
-  const m = { square_meter:1, square_kilometer:1e6, hectare:1e4, acre:4046.86 };
-  return (v * m[from] / m[to]).toFixed(4);
-}
-function convertVolume(v, from, to) {
-  const m = { liter:1, milliliter:0.001, cubic_meter:1000, gallon:3.785 };
-  return (v * m[from] / m[to]).toFixed(4);
-}
-function convertSpeed(v, from, to) {
-  const m = { mps:1, kmph:0.27778, mph:0.44704, knot:0.51444 };
-  return (v * m[from] / m[to]).toFixed(4);
-}
-function convertPressure(v, from, to) {
-  const m = { pascal:1, bar:1e5, psi:6894.76, atm:101325 };
-  return (v * m[from] / m[to]).toFixed(4);
-}
-function convertEnergy(v, from, to) {
-  const m = { joule:1, kilojoule:1000, calorie:4.184, kilocalorie:4184, watt_hour:3600 };
-  return (v * m[from] / m[to]).toFixed(4);
-}
+  if (from ===
 
-// Save & Load
-function saveConversion(text) {
-  let saved = JSON.parse(localStorage.getItem("saved")) || [];
-  saved.unshift(text);
-  saved = saved.slice(0, 5);
-  localStorage.setItem("saved", JSON.stringify(saved));
-  loadSaved();
-}
-function loadSaved() {
-  let saved = JSON.parse(localStorage.getItem("saved")) || [];
-  const list = document.getElementById("saved");
-  list.innerHTML = "";
-  saved.forEach(item => list.innerHTML +=
 
 
 
