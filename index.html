@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <h1>Engineering Unit Converter</h1>
-    <p class="subtitle">Convert Length • Mass • Temperature</p>
+    <p class="subtitle">Convert Length • Mass • Temperature • Area • Volume • Speed • Pressure • Energy</p>
 
     <div class="converter-card">
       <label for="type">Conversion Type:</label>
@@ -17,13 +17,22 @@
         <option value="length">Length</option>
         <option value="mass">Mass</option>
         <option value="temperature">Temperature</option>
+        <option value="area">Area</option>
+        <option value="volume">Volume</option>
+        <option value="speed">Speed</option>
+        <option value="pressure">Pressure</option>
+        <option value="energy">Energy</option>
       </select>
 
       <label for="from">From:</label>
-      <select id="from"></select>
+      <select id="from">
+        <option disabled selected>-- pilih unit --</option>
+      </select>
 
       <label for="to">To:</label>
-      <select id="to"></select>
+      <select id="to">
+        <option disabled selected>-- pilih unit --</option>
+      </select>
 
       <label for="value">Value:</label>
       <input type="number" id="value" placeholder="Enter number" />
@@ -44,13 +53,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
