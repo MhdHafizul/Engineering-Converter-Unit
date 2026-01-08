@@ -6,6 +6,8 @@ const units = {
 
 document.getElementById("type").addEventListener("change", populateUnits);
 document.getElementById("convertBtn").addEventListener("click", convert);
+document.getElementById("pushBtn").addEventListener("click", pushConversion);
+document.getElementById("resetBtn").addEventListener("click", resetForm);
 
 populateUnits();
 loadSaved();
@@ -42,7 +44,7 @@ function convert() {
   if (type === "temperature") result = convertTemp(value, from, to);
 
   document.getElementById("result").innerText = `${value} ${from} = ${result} ${to}`;
-  saveConversion(`${value} ${from} → ${result} ${to}`);
+  saveConversion(`${value} ${from} = ${result} ${to}`);
 }
 
 function convertLength(v, from, to) {
@@ -52,7 +54,6 @@ function convertLength(v, from, to) {
     mile: 1609.34,
     feet: 0.3048
   };
-
   return (v * m[from] / m[to]).toFixed(4);
 }
 
@@ -62,7 +63,7 @@ function convertMass(v, from, to) {
 }
 
 function convertTemp(v, from, to) {
-  if (from === to) return v;
+  if (from === to) return v.toFixed(2);
 
   if (from === "celsius") {
     if (to === "fahrenheit") return (v * 9/5 + 32).toFixed(2);
@@ -88,7 +89,18 @@ function saveConversion(text) {
 
 function loadSaved() {
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
-  const list = document.getElementById("savedList");
+  const list = document.getElementById("saved"); // FIXED ID
   list.innerHTML = "";
   saved.forEach(item => list.innerHTML += `<li>${item}</li>`);
 }
+
+function pushConversion() {
+  const resultText = document.getElementById("result").innerText;
+  if (resultText) saveConversion(resultText);
+}
+
+function resetForm() {
+  document.getElementById("value").value = "";
+  document.getElementById("result").innerText = "";
+}
+
