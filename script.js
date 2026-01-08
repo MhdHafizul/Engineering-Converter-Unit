@@ -4,23 +4,31 @@ const units = {
   temperature: ["celsius", "fahrenheit", "kelvin"]
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+  populateUnits();
+});
+
 document.getElementById("type").addEventListener("change", populateUnits);
 document.getElementById("convertBtn").addEventListener("click", convert);
 document.getElementById("pushBtn").addEventListener("click", pushConversion);
 document.getElementById("resetBtn").addEventListener("click", resetForm);
-
-populateUnits();
-loadSaved();
 
 function populateUnits() {
   const type = document.getElementById("type").value;
   const from = document.getElementById("from");
   const to = document.getElementById("to");
 
+  const unitList = units[type];
+  if (!unitList) {
+    from.innerHTML = "<option disabled>No units</option>";
+    to.innerHTML = "<option disabled>No units</option>";
+    return;
+  }
+
   from.innerHTML = "";
   to.innerHTML = "";
 
-  units[type].forEach(u => {
+  unitList.forEach(u => {
     from.innerHTML += `<option value="${u}">${u}</option>`;
     to.innerHTML += `<option value="${u}">${u}</option>`;
   });
@@ -90,13 +98,8 @@ function loadSaved() {
 
 function pushConversion() {
   const resultText = document.getElementById("result").innerText;
-  if (resultText) saveConversion(resultText);
-}
 
-function resetForm() {
-  document.getElementById("value").value = "";
-  document.getElementById("result").innerText = "";
-}
+
 
 
 
