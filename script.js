@@ -38,7 +38,6 @@ function convert() {
   }
 
   let result;
-
   if (type === "length") result = convertLength(value, from, to);
   if (type === "mass") result = convertMass(value, from, to);
   if (type === "temperature") result = convertTemp(value, from, to);
@@ -48,12 +47,7 @@ function convert() {
 }
 
 function convertLength(v, from, to) {
-  const m = {
-    meter: 1,
-    kilometer: 1000,
-    mile: 1609.34,
-    feet: 0.3048
-  };
+  const m = { meter: 1, kilometer: 1000, mile: 1609.34, feet: 0.3048 };
   return (v * m[from] / m[to]).toFixed(4);
 }
 
@@ -89,7 +83,7 @@ function saveConversion(text) {
 
 function loadSaved() {
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
-  const list = document.getElementById("saved"); // FIXED ID
+  const list = document.getElementById("saved");
   list.innerHTML = "";
   saved.forEach(item => list.innerHTML += `<li>${item}</li>`);
 }
@@ -103,4 +97,6 @@ function resetForm() {
   document.getElementById("value").value = "";
   document.getElementById("result").innerText = "";
 }
+
+
 
