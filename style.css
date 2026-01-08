@@ -1,53 +1,3 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
-}
-
-body {
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.container {
-  background: #ffffffcc;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-  width: 400px;
-  text-align: center;
-}
-
-h1 {
-  color: #ff4d6d;
-  margin-bottom: 5px;
-}
-
-.subtitle {
-  color: #3f51b5;
-  margin-bottom: 25px;
-  font-weight: bold;
-}
-
-.converter-card {
-  background: linear-gradient(145deg, #ffecd2, #fcb69f);
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-label {
-  display: block;
-  margin-top: 15px;
-  font-weight: 600;
-  color: #2c3e50;
-}
-
 select, input {
   width: 100%;
   padding: 10px;
@@ -64,45 +14,6 @@ select option[disabled] {
   color: #777;
 }
 
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-button {
-  flex: 1;
-  margin: 0 5px;
-  padding: 12px;
-  border: none;
-  border-radius: 12px;
-  font-weight: bold;
-  cursor: pointer;
-  color: white;
-}
-
-#convertBtn { background: #1abc9c; }
-#pushBtn { background: #f39c12; }
-#resetBtn { background: #e74c3c; }
-
-#result {
-  margin-top: 15px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #27ae60;
-}
-
-h2 {
-  color: #9b59b6;
-  margin-top: 30px;
-  font-size: 1.3rem;
-}
-
-#saved {
-  list-style: none;
-  margin-top: 10px;
-  color: #34495e;
-}
 
 
 
