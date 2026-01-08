@@ -1,4 +1,3 @@
-/* Reset default */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -78,29 +77,14 @@ button {
   transition: transform 0.2s;
 }
 
-#convertBtn {
-  background: #1abc9c;
-}
-#convertBtn:hover {
-  transform: scale(1.05);
-  background: #16a085;
-}
+#convertBtn { background: #1abc9c; }
+#convertBtn:hover { transform: scale(1.05); background: #16a085; }
 
-#pushBtn {
-  background: #f39c12;
-}
-#pushBtn:hover {
-  transform: scale(1.05);
-  background: #d35400;
-}
+#pushBtn { background: #f39c12; }
+#pushBtn:hover { transform: scale(1.05); background: #d35400; }
 
-#resetBtn {
-  background: #e74c3c;
-}
-#resetBtn:hover {
-  transform: scale(1.05);
-  background: #c0392b;
-}
+#resetBtn { background: #e74c3c; }
+#resetBtn:hover { transform: scale(1.05); background: #c0392b; }
 
 #result {
   margin-top: 15px;
@@ -120,6 +104,8 @@ h2 {
   margin-top: 10px;
   color: #34495e;
 }
+
+
 
 
 
