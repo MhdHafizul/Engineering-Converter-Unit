@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #f9f871, #ff9b9b);
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -18,28 +18,30 @@ body {
 .container {
     background: #ffffffcc;
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    width: 400px;
     text-align: center;
 }
 
 h1 {
-    color: #2e86de;
+    color: #ff4d6d;
     margin-bottom: 5px;
+    text-shadow: 1px 1px 2px #fff;
 }
 
 .subtitle {
-    color: #e74c3c;
-    margin-bottom: 20px;
+    color: #3f51b5;
+    margin-bottom: 25px;
     font-weight: bold;
+    text-shadow: 0 1px 1px #fff;
 }
 
 .converter-card {
-    background: linear-gradient(145deg, #ffe29f, #ff95b2);
-    padding: 20px;
+    background: linear-gradient(145deg, #ffecd2, #fcb69f);
+    padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 label {
@@ -53,7 +55,7 @@ select, input {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border-radius: 8px;
+    border-radius: 10px;
     border: 1px solid #ccc;
     font-size: 1rem;
 }
@@ -69,7 +71,7 @@ button {
     margin: 0 5px;
     padding: 12px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     font-weight: bold;
     cursor: pointer;
     color: white;
@@ -77,12 +79,12 @@ button {
 }
 
 #convertBtn {
-    background: #3498db;
+    background: #1abc9c;
 }
 
 #convertBtn:hover {
     transform: scale(1.05);
-    background: #2980b9;
+    background: #16a085;
 }
 
 #pushBtn {
@@ -111,9 +113,9 @@ button {
 }
 
 h2 {
-    color: #8e44ad;
+    color: #9b59b6;
     margin-top: 30px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 #saved {
@@ -121,4 +123,6 @@ h2 {
     margin-top: 10px;
     color: #34495e;
 }
+
+
 
