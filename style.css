@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
 }
 
 body {
@@ -26,14 +26,12 @@ body {
 h1 {
   color: #ff4d6d;
   margin-bottom: 5px;
-  text-shadow: 1px 1px 2px #fff;
 }
 
 .subtitle {
   color: #3f51b5;
   margin-bottom: 25px;
   font-weight: bold;
-  text-shadow: 0 1px 1px #fff;
 }
 
 .converter-card {
@@ -57,6 +55,13 @@ select, input {
   border-radius: 10px;
   border: 1px solid #ccc;
   font-size: 1rem;
+  background-color: #fff;
+  color: #2c3e50;
+  appearance: none;
+}
+
+select option[disabled] {
+  color: #777;
 }
 
 .buttons {
@@ -74,17 +79,11 @@ button {
   font-weight: bold;
   cursor: pointer;
   color: white;
-  transition: transform 0.2s;
 }
 
 #convertBtn { background: #1abc9c; }
-#convertBtn:hover { transform: scale(1.05); background: #16a085; }
-
 #pushBtn { background: #f39c12; }
-#pushBtn:hover { transform: scale(1.05); background: #d35400; }
-
 #resetBtn { background: #e74c3c; }
-#resetBtn:hover { transform: scale(1.05); background: #c0392b; }
 
 #result {
   margin-top: 15px;
@@ -104,10 +103,8 @@ h2 {
   margin-top: 10px;
   color: #34495e;
 }
-select option {
-  color: #2c3e50;
-  background: #fff;
-}
+
+
 
 
 
