@@ -67,5 +67,7 @@ Please ensure code is **well-documented** and **tested across devices**.
 ---
 
 ## 👨‍💻 Author
-Developed by **Mhd Hafizul**  
-Passionate about building practical engineering tools with cheerful design and broad accessibility.
+MUHAMMAD HAFIZUL HAKIM BIN MOHD NAFFI ( B132510225 ) 
+ALMAN FALUTHI BIN MOHD FARUK ( B132510201 )
+MUHAMMAD FAISAL BIN DERAMAN ( B132510183 )
+
